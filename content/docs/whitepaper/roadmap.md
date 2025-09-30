@@ -43,7 +43,7 @@ HedgeCore adopts a staged deployment strategy ensuring controlled launch, commun
 
 - **Launch hUSDC bridge to Ethereum and Arbitrum networks**
 - **Implement cross-chain liquidity consolidation**
-- **Release advanced wrapper capabilities (fractional unwrap, gasless transactions)**
+- **Release advanced wrapper capabilities (gasless transactions, batch operations)**
 - Evaluate additional blockchain deployments (Polygon, Base)
 - Adjust token precision for varying USDC decimal environments
 - Engineer interchain communication for unified liquidity pools

@@ -24,22 +24,22 @@ Risk-averse participants seeking stable returns without exposure to volatile DeF
 - Enhanced security through non-transferability
 - Emergency withdrawal mechanisms
 
-## 2. Liquidity Access Without Unstaking
+## 2. Yield Position Entry via hUSDC
 
 ### Scenario
-Participants need immediate liquidity but don't want to forfeit future yield.
+Participants hold tradeable hUSDC tokens and want to access yield generation.
 
 ### HedgeCore Solution
-- Wrap sUSDC to hUSDC through wrapper contract
-- Trade hUSDC on DEXs (PancakeSwap, etc.)
-- Underlying sUSDC continues earning Venus yields
-- Convert back to sUSDC anytime via unwrap
+- Convert hUSDC to sUSDC through wrapper contract
+- Start earning Venus Protocol yields immediately
+- Conversion is one-way (no reverse path)
+- Optional time-locks for vesting schedules
 
 ### Benefits
-- Access liquidity without unstaking
-- Maintain yield exposure
+- Access yield generation from liquid holdings
+- Simple, secure one-way conversion
 - No conversion fees
-- 1:1 backing ensures price stability
+- Immediate yield accrual
 
 ## 3. Institutional Token Vesting
 
@@ -47,7 +47,7 @@ Participants need immediate liquidity but don't want to forfeit future yield.
 Teams and investors require programmable token vesting schedules with built-in security.
 
 ### HedgeCore Solution
-- Use `wrapAndLock()` function for time-locked hUSDC
+- Use `hedgeWrapLocked()` function for time-locked sUSDC
 - Set custom unlock schedules per recipient
 - Lock enforcement at contract level
 - Yield continues accruing during vesting
@@ -65,15 +65,15 @@ Advanced users want to maximize returns by combining multiple yield sources.
 
 ### HedgeCore Solution
 - Deposit USDC to earn Venus yields (base layer)
-- Wrap sUSDC to hUSDC (maintains base yield)
-- Provide hUSDC/USDC liquidity on DEXs
-- Earn trading fees + Venus yields simultaneously
+- Trade hUSDC on DEXs for liquidity
+- Provide hUSDC/USDC liquidity to earn trading fees
+- Base Venus yield continues for converted positions
 
 ### Benefits
-- Multiple yield streams from single deposit
-- Base Venus yield never interrupted
+- Multiple yield streams available
+- Flexible liquidity options
 - Additional DEX trading fee income
-- Flexible liquidity provision
+- Standard ERC20 compatibility for hUSDC
 
 ## 5. Collateralized Lending
 
@@ -81,16 +81,16 @@ Advanced users want to maximize returns by combining multiple yield sources.
 Participants want to use stablecoin holdings as collateral without selling.
 
 ### HedgeCore Solution
-- Wrap sUSDC to hUSDC
+- Trade hUSDC on secondary markets
 - Deposit hUSDC as collateral in lending protocols
 - Borrow other assets against hUSDC
-- Underlying sUSDC continues earning yields
+- Maintain exposure to ecosystem
 
 ### Benefits
 - Leverage stablecoin position
-- Maintain yield generation
 - Access capital without liquidating
 - Standard ERC20 compatibility
+- Active secondary market
 
 ## 6. Protocol Treasury Management
 
@@ -109,21 +109,21 @@ DAOs and protocols need secure, yield-generating reserves management.
 - Integration with existing multisig infrastructure
 - Emergency controls for risk management
 
-## 7. Arbitrage and Market Making
+## 7. Market Making and Trading
 
 ### Scenario
-Sophisticated traders maintain hUSDC peg stability while earning returns.
+Sophisticated traders provide liquidity and trade hUSDC tokens.
 
 ### HedgeCore Solution
-- Monitor hUSDC price on DEXs
-- Buy below peg → unwrap to sUSDC → profit
-- Wrap sUSDC → sell above peg → profit
+- Trade hUSDC on DEXs (PancakeSwap, etc.)
 - Provide liquidity for trading fee income
+- Arbitrage opportunities in secondary markets
+- Support ecosystem liquidity
 
 ### Benefits
-- Natural peg enforcement through arbitrage
-- Earn yields from price discrepancies
-- DEX liquidity provision rewards
+- Active trading markets for hUSDC
+- Earn yields from liquidity provision
+- Standard ERC20 interface
 - Support protocol ecosystem health
 
 ## 8. Cross-Protocol Yield Strategies
@@ -134,15 +134,15 @@ Yield aggregators want to integrate HedgeCore into complex strategies.
 ### HedgeCore Solution
 - Integrate hUSDC into automated yield strategies
 - Rebalance between protocols as rates change
-- Maintain base Venus yield while strategy active
+- Trade on secondary markets for liquidity
 - Standard ERC20 interface simplifies integration
 
 ### Benefits
 - Plug into existing DeFi infrastructure
-- Add stable yield component to strategies
+- Add stable component to strategies
 - Reduce overall portfolio volatility
 - Diversify yield sources
 
 ## Summary
 
-HedgeCore's dual-token architecture enables diverse use cases from conservative yield generation to sophisticated DeFi strategies. The separation of security (sUSDC) and liquidity (hUSDC) layers allows participants to choose their optimal balance of safety and flexibility without compromise.
+HedgeCore's dual-token architecture enables diverse use cases from conservative yield generation to sophisticated DeFi strategies. The one-way wrapper (hUSDC → sUSDC) provides a straightforward path to yield generation, while hUSDC's tradeable nature enables secondary market activity and DeFi composability without compromising sUSDC's security model.

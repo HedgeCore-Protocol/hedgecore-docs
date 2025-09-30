@@ -112,21 +112,22 @@ All critical operations generate events enabling:
   - Emergency USDC recovery functions
   - Modular architecture enabling strategy modifications
 
-## hUSDC Security Framework
+## hUSDC Wrapper Security Framework
 
 ### Wrapper Contract Protection
-The StUSDCWrapper contract implements comprehensive security measures:
+The HUSDCWrapper contract implements comprehensive security measures:
 - **Immutable Architecture**: No administrative fund drainage functions
-- **Reentrancy Defense**: Protected wrap/unwrap operations
-- **Lock Validation**: Prevents premature vested token unwrapping
+- **One-Way Design**: Only hUSDC → sUSDC conversion (no unwrap)
+- **Reentrancy Defense**: Protected hedgeWrap operations
+- **Lock Validation**: Prevents premature vested token transfers via getHedgeLockInfo
 - **Permission-Based Access**: Restricted token locking to authorized addresses
 
 ### Economic Protection
-hUSDC maintains value stability through:
-- **1:1 Collateralization**: Each hUSDC backed by precisely 1 sUSDC
-- **Arbitrage Enforcement**: Natural peg preservation via trading activity
-- **Zero Algorithmic Dependencies**: Straightforward mint/burn architecture
-- **Substantial Liquidity**: Protocol and participant-provided liquidity pools
+The one-way wrapper maintains security through:
+- **Simple Architecture**: No complex unwrap mechanisms to exploit
+- **Direct Conversion**: Straightforward hedgeWrap() and hedgeMint() operations
+- **Lock Enforcement**: Contract-level lock verification via getHedgeLockInfo()
+- **No Reverse Path**: Eliminates unwrap-related attack vectors
 
 ## Layered Security Architecture
 
