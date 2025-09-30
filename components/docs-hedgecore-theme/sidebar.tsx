@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const sidebarNavItems = [
   {
@@ -66,39 +68,90 @@ const sidebarNavItems = [
 
 export function Sidebar() {
   const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [mobileMenuOpen])
+
+  const SidebarContent = () => (
+    <nav className="space-y-8">
+      {sidebarNavItems.map((category) => (
+        <div key={category.title}>
+          <div className="mb-3 text-xs font-medium tracking-wide text-gray-400 uppercase">
+            {category.title}
+          </div>
+          <ul className="space-y-0.5">
+            {category.items.map((item) => {
+              const isActive = pathname === item.href
+
+              return (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    className={`block px-3 py-2 text-sm rounded-lg transition-all duration-200
+                      ${
+                        isActive
+                          ? "text-blue-600 bg-blue-50 font-medium"
+                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  )
 
   return (
-    <aside className="hidden md:block w-64 border-r border-gray-100 p-8 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto bg-white">
-      <nav className="space-y-8">
-        {sidebarNavItems.map((category) => (
-          <div key={category.title}>
-            <div className="mb-3 text-xs font-medium tracking-wide text-gray-400 uppercase">
-              {category.title}
-            </div>
-            <ul className="space-y-0.5">
-              {category.items.map((item) => {
-                const isActive = pathname === item.href
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden fixed bottom-6 right-6 z-50 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
-                return (
-                  <li key={item.title}>
-                    <Link
-                      href={item.href}
-                      className={`block px-3 py-2 text-sm rounded-lg transition-all duration-200
-                        ${
-                          isActive
-                            ? "text-blue-600 bg-blue-50 font-medium"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        ))}
-      </nav>
-    </aside>
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:block w-64 border-r border-gray-100 p-8 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto bg-white">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile Sidebar */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="md:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Sidebar */}
+          <aside className="md:hidden fixed left-0 top-14 bottom-0 w-80 max-w-[85vw] bg-white z-40 overflow-y-auto p-6 shadow-xl">
+            <SidebarContent />
+          </aside>
+        </>
+      )}
+    </>
   )
 }
