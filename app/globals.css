@@ -43,4 +43,28 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Ensure all content respects viewport width */
+  * {
+    max-width: 100%;
+  }
+
+  /* Better text wrapping */
+  p, li, td, th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Code blocks should scroll horizontally if needed */
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
 }

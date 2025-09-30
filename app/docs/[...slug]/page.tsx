@@ -120,11 +120,11 @@ export default async function DocPage({
       <div className="flex flex-1">
         <Sidebar />
 
-        <main className="flex-1 p-6 md:p-8 lg:p-10">
-          <div className="mx-auto max-w-4xl">
+        <main className="flex-1 px-4 py-6 md:p-8 lg:p-10">
+          <div className="mx-auto max-w-4xl overflow-x-hidden">
             {/* Breadcrumbs */}
-            <div className="mb-8">
-              <div className="mb-2 flex items-center text-sm text-gray-600">
+            <div className="mb-6 md:mb-8">
+              <div className="mb-2 flex flex-wrap items-center text-xs md:text-sm text-gray-600">
                 {breadcrumbs.map((crumb, i) => (
                   <div key={i} className="flex items-center">
                     {crumb.href ? (
@@ -145,7 +145,7 @@ export default async function DocPage({
               </div>
 
               {doc.metadata.description && (
-                <p className="mb-6 text-lg text-gray-600">
+                <p className="mb-4 md:mb-6 text-sm md:text-lg text-gray-600">
                   {doc.metadata.description}
                 </p>
               )}
@@ -153,12 +153,13 @@ export default async function DocPage({
 
             {/* Rendered markdown */}
             <div
-              className="prose prose-lg max-w-none text-gray-700
+              className="prose prose-sm md:prose-lg max-w-none text-gray-700
                          prose-headings:text-gray-900 prose-a:text-blue-500
                          hover:prose-a:text-blue-600 prose-strong:text-gray-900
                          prose-code:rounded prose-code:bg-gray-100 prose-code:px-1
-                         prose-code:py-0.5 prose-code:text-gray-900
-                         prose-pre:bg-gray-900 prose-pre:shadow-lg"
+                         prose-code:py-0.5 prose-code:text-gray-900 prose-code:break-words
+                         prose-pre:bg-gray-900 prose-pre:shadow-lg prose-pre:overflow-x-auto
+                         break-words overflow-wrap-anywhere"
               dangerouslySetInnerHTML={{ __html: doc.content }}
             />
 
@@ -190,7 +191,9 @@ export default async function DocPage({
         </main>
 
         {doc.headings.length > 0 && (
-          <TableOfContents headings={doc.headings} />
+          <div className="hidden xl:block">
+            <TableOfContents headings={doc.headings} />
+          </div>
         )}
       </div>
 
