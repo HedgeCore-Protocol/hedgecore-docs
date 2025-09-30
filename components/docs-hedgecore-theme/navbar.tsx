@@ -12,9 +12,12 @@ export function Navbar() {
           <img
             src="/hedgecore-logo.svg"
             alt="HedgeCore"
-            className="h-8 group-hover:opacity-80 transition-opacity duration-300"
+            className="w-8 h-8 group-hover:opacity-80 transition-opacity duration-300"
           />
-          <span className="text-sm font-medium text-gray-500">
+          <span className="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors duration-300">
+            HedgeCore
+          </span>
+          <span className="text-sm font-medium text-gray-400">
             Docs
           </span>
         </Link>
