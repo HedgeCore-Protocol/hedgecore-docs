@@ -1,16 +1,16 @@
 ---
 title: "Contribute"
-description: "How to contribute to HedgeCore protocol development"
+description: "How to contribute to StoneYield protocol development"
 prev: "community/join"
 ---
 
 # Contribute
 
-HedgeCore welcomes contributions from the community. Help us build the future of decentralized yield protocols.
+StoneYield welcomes contributions from the community. Help us build the future of decentralized yield protocols.
 
 ## GitHub Repository
 
-**[github.com/HedgeCore-Protocol](https://github.com/HedgeCore-Protocol)**
+**[github.com/StoneYield-Labs](https://github.com/StoneYield-Labs)**
 
 Visit our GitHub to:
 - View source code
@@ -46,13 +46,13 @@ Visit our GitHub to:
 
 Found a security vulnerability? Report it responsibly:
 
-**Email**: security@hedgecore.io
+**Email**: security@stoneyield.io
 
 ## Contact
 
 Questions about contributing?
-- **Discord**: [discord.gg/hedgecore](https://discord.gg/hedgecore)
-- **Telegram**: [t.me/hedgecore_io](https://t.me/hedgecore_io)
-- **Email**: dev@hedgecore.io
+- **Discord**: [discord.gg/stoneyield](https://discord.gg/stoneyield)
+- **Telegram**: [t.me/stoneyield.io](https://t.me/stoneyield.io)
+- **Email**: dev@stoneyield.io
 
-Thank you for contributing to HedgeCore! 🙏
+Thank you for contributing to StoneYield! 🙏

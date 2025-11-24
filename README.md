@@ -1,10 +1,10 @@
-# HedgeCore Documentation
+# StoneYield Documentation
 
-Official documentation for the HedgeCore protocol - a soul-bound hedged stablecoin protocol on Binance Smart Chain.
+Official documentation for the StoneYield protocol - a soul-bound hedged stablecoin protocol on Binance Smart Chain.
 
 ## Overview
 
-HedgeCore is a decentralized hedging protocol that introduces soul-bound stablecoins (sUSD) and tradeable wrappers (hUSDC) for secure, sustainable yield generation through Venus Protocol integration.
+StoneYield is a decentralized hedging protocol that introduces soul-bound stablecoins (sUSDC) and a transferable wrapper (STUSD) for secure, sustainable yield generation through Venus Protocol integration.
 
 ## Tech Stack
 
@@ -28,7 +28,7 @@ Open [http://localhost:3003](http://localhost:3003)
 - **About**: Introduction and core mechanics
 - **Protocol**: Technical implementation details
 - **FAQ**: Common questions and answers
-- **hUSDC**: Liquidity wrapper documentation
+- **STUSD**: Wrapper & liquidity layer documentation
 
 ## License
 

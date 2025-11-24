@@ -1,19 +1,19 @@
 ---
 title: "Token Lifecycle"
-description: "Complete lifecycle management for sUSD soul-bound hedging tokens"
+description: "Complete lifecycle management for STUSD soul-bound hedging tokens"
 next: "protocol/locking-mechanism"
 ---
 
 # Token Lifecycle
 
-The HedgeCore protocol administers a comprehensive lifecycle for sUSD, the soul-bound hedging token. Each stage maintains careful engineering to enforce security, ensure transparency, and deliver sustainable yield without speculative transferability.
+The StoneYield protocol administers a comprehensive lifecycle for STUSD, the soul-bound hedging token. Each stage maintains careful engineering to enforce security, ensure transparency, and deliver sustainable yield without speculative transferability.
 
 ## 1. Deposit and Generation
 
-Participants initiate by authorizing protocol USDC transfers from their wallets. Following approval, the protocol generates equivalent sUSD (1:1) to the participant's address. This operation executes by the protocol owner (typically multisig) through the `depositAndMint()` function.
+Participants initiate by authorizing protocol USDC transfers from their wallets. Following approval, the protocol generates equivalent STUSD (1:1) to the participant's address. This operation executes by the protocol owner (typically multisig) through the `depositAndMint()` function.
 
 Key characteristics:
-- sUSD generates with specified lock duration (minimum 1 hour, maximum 365 days)
+- STUSD generates with specified lock duration (minimum 1 hour, maximum 365 days)
 - Lock enforces per-wallet via timestamp (`unlockAt`)
 - Tokens maintain non-transferability while locked
 
@@ -23,7 +23,7 @@ Upon generation, the participant's wallet receives time-lock, preventing token m
 
 ## 3. Reward Allocation
 
-The protocol periodically distributes yield through the `rewardMint()` function. This function generates additional sUSD tokens to selected participants. Newly generated rewards inherit lock status:
+The protocol periodically distributes yield through the `rewardMint()` function. This function generates additional STUSD tokens to selected participants. Newly generated rewards inherit lock status:
 - If the participant maintains existing lock, new rewards follow current lock
 - If the participant receives first reward, a 1-second placeholder lock applies to enforce manual `unlock()` step
 
@@ -33,13 +33,13 @@ Following lock period expiration, participants must explicitly invoke `unlock()`
 
 ## 5. Redemption
 
-If premature exit becomes necessary, administrators may invoke `earlyRedeem()` to burn sUSD from a participant and return equivalent USDC amount. This process maintains strict owner-control and requires protocol to maintain sufficient USDC reserves.
+If premature exit becomes necessary, administrators may invoke `earlyRedeem()` to burn STUSD from a participant and return equivalent USDC amount. This process maintains strict owner-control and requires protocol to maintain sufficient USDC reserves.
 
 ## 6. Lifecycle Finalization
 
 Following unlocking, participants can:
-- Transfer sUSD (if protocol permits via `isDex`)
+- Transfer STUSD (if protocol permits via `isDex`)
 - Engage with whitelisted DEX or liquidity pools
-- Burn sUSD via `burn()` for treasury or system operations
+- Burn STUSD via `burn()` for treasury or system operations
 
 The lifecycle maintains on-chain tracking utilizing mappings like `unlockAt`, `totalStaked`, and `hasStaked`, enabling complete visibility into hedging history and lock status.

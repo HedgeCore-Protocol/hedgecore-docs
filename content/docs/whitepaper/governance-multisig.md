@@ -1,13 +1,13 @@
 ---
 title: "Governance & Multisig"
-description: "Decentralized control mechanisms and administrative oversight in HedgeCore"
+description: "Decentralized control mechanisms and administrative oversight in StoneYield"
 prev: "whitepaper/security-model"
 next: "whitepaper/supply-control"
 ---
 
 # Governance & Multisig
 
-HedgeCore employs owner-restricted functions across all critical protocol operations, encompassing minting, unlocking, burning, redemption, and configuration activities. These operations maintain intentional access control for precision management while requiring transparent and secure governance structures.
+StoneYield employs owner-restricted functions across all critical protocol operations, encompassing minting, unlocking, burning, redemption, and configuration activities. These operations maintain intentional access control for precision management while requiring transparent and secure governance structures.
 
 ## Multi-Signature Ownership
 
@@ -35,7 +35,7 @@ These functions constitute foundational system operations requiring trusted, coo
 
 ## Governance Evolution Path
 
-The present framework assumes off-chain governance execution (e.g., multisig voting implementation). HedgeCore maintains compatibility with future progression toward DAO-administered or on-chain governance architectures, where:
+The present framework assumes off-chain governance execution (e.g., multisig voting implementation). StoneYield maintains compatibility with future progression toward DAO-administered or on-chain governance architectures, where:
 
 - Stakeholder proposals undergo structured voting procedures
 - Execution triggers via smart contract governance modules
@@ -49,4 +49,4 @@ Multi-signature governance provides optimal balance between responsiveness and d
 
 ## Summary
 
-HedgeCore governance architecture prioritizes transparency, auditability, and distributed control. Through multisig delegation of owner functions and strategic planning for future DAO integration, the protocol ensures critical decisions remain secure, deliberate, and accountable.
+StoneYield governance architecture prioritizes transparency, auditability, and distributed control. Through multisig delegation of owner functions and strategic planning for future DAO integration, the protocol ensures critical decisions remain secure, deliberate, and accountable.

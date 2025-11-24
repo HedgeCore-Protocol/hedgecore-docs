@@ -1,7 +1,7 @@
-import { Navbar } from "@/components/docs-hedgecore-theme/navbar"
-import { Sidebar } from "@/components/docs-hedgecore-theme/sidebar"
-import { Footer } from "@/components/docs-hedgecore-theme/footer"
-import { TableOfContents } from "@/components/docs-hedgecore-theme/table-of-contents"
+import { Navbar } from "@/components/docs-stoneyield-theme/navbar"
+import { Sidebar } from "@/components/docs-stoneyield-theme/sidebar"
+import { Footer } from "@/components/docs-stoneyield-theme/footer"
+import { TableOfContents } from "@/components/docs-stoneyield-theme/table-of-contents"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import fs from "fs"
@@ -76,7 +76,7 @@ function generateBreadcrumbs(slug: string[]) {
 
   const sectionFirstPages: Record<string, string> = {
     whitepaper: "/docs/whitepaper/abstract",
-    about: "/docs/about/what-is-hedgecore",
+    about: "/docs/about/what-is-stoneyield",
     features: "/docs/features/key-features",
     github: "/docs/github/smart-contracts",
     community: "/docs/community/join",
@@ -104,9 +104,9 @@ function generateBreadcrumbs(slug: string[]) {
 export default async function DocPage({
   params,
 }: {
-  params: Promise<{ slug?: string[] }>
+  params: { slug?: string[] }
 }) {
-  const { slug = ["whitepaper", "abstract"] } = await params
+  const slug = params.slug ?? ["whitepaper", "abstract"]
 
   const doc = await getDocContent(slug)
   if (!doc) notFound()
@@ -114,87 +114,77 @@ export default async function DocPage({
   const breadcrumbs = generateBreadcrumbs(slug)
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900">
+    <div className="flex min-h-screen flex-col text-white">
       <Navbar />
 
-      <div className="flex flex-1">
-        <Sidebar />
+      <div className="flex flex-1 flex-col px-4 py-6 md:px-8 lg:px-12">
+        <div className="flex flex-1 flex-col gap-6 lg:flex-row">
+          <Sidebar />
 
-        <main className="flex-1 px-4 py-6 md:p-8 lg:p-10">
-          <div className="mx-auto max-w-4xl overflow-x-hidden">
-            {/* Breadcrumbs */}
-            <div className="mb-6 md:mb-8">
-              <div className="mb-2 flex flex-wrap items-center text-xs md:text-sm text-gray-600">
-                {breadcrumbs.map((crumb, i) => (
-                  <div key={i} className="flex items-center">
-                    {crumb.href ? (
-                      <Link
-                        href={crumb.href}
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        {crumb.label}
-                      </Link>
-                    ) : (
-                      <span className="text-gray-900 font-medium">{crumb.label}</span>
-                    )}
-                    {i < breadcrumbs.length - 1 && (
-                      <ChevronRight className="mx-1 h-4 w-4" />
-                    )}
-                  </div>
-                ))}
-              </div>
+          <main className="flex-1">
+            <div className="mx-auto flex max-w-4xl flex-col gap-6">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                <div className="mb-4 flex flex-wrap items-center text-xs md:text-sm text-emerald-200/80">
+                  {breadcrumbs.map((crumb, i) => (
+                    <div key={i} className="flex items-center">
+                      {crumb.href ? (
+                        <Link href={crumb.href} className="hover:text-white transition-colors">
+                          {crumb.label}
+                        </Link>
+                      ) : (
+                        <span className="font-semibold text-white">{crumb.label}</span>
+                      )}
+                      {i < breadcrumbs.length - 1 && <ChevronRight className="mx-1 h-3 w-3" />}
+                    </div>
+                  ))}
+                </div>
 
-              {doc.metadata.description && (
-                <p className="mb-4 md:mb-6 text-sm md:text-lg text-gray-600">
-                  {doc.metadata.description}
-                </p>
-              )}
-            </div>
-
-            {/* Rendered markdown */}
-            <div
-              className="prose prose-sm md:prose-lg max-w-none text-gray-700
-                         prose-headings:text-gray-900 prose-a:text-blue-500
-                         hover:prose-a:text-blue-600 prose-strong:text-gray-900
-                         prose-code:rounded prose-code:bg-gray-100 prose-code:px-1
-                         prose-code:py-0.5 prose-code:text-gray-900 prose-code:break-words
-                         prose-pre:bg-gray-900 prose-pre:shadow-lg prose-pre:overflow-x-auto
-                         break-words overflow-wrap-anywhere"
-              dangerouslySetInnerHTML={{ __html: doc.content }}
-            />
-
-            {/* Pager */}
-            <div className="mt-12 border-t border-gray-200 pt-8">
-              <div className="flex justify-between">
-                {doc.metadata.prev && (
-                  <Link
-                    href={`/docs/${doc.metadata.prev}`}
-                    className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    <ChevronRight className="mr-1 h-4 w-4 rotate-180" />
-                    Previous
-                  </Link>
-                )}
-
-                {doc.metadata.next && (
-                  <Link
-                    href={`/docs/${doc.metadata.next}`}
-                    className="ml-auto flex items-center text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    Next
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
+                {doc.metadata.description && (
+                  <p className="text-sm text-slate-300 md:text-base">{doc.metadata.description}</p>
                 )}
               </div>
-            </div>
-          </div>
-        </main>
 
-        {doc.headings.length > 0 && (
-          <div className="hidden xl:block">
-            <TableOfContents headings={doc.headings} />
-          </div>
-        )}
+              <div
+                className="prose prose-invert prose-headings:text-white prose-strong:text-emerald-200 prose-code:bg-white/10 prose-code:text-emerald-200 prose-a:text-emerald-300 hover:prose-a:text-white max-w-none rounded-[32px] border border-white/10 bg-black/30 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+                dangerouslySetInnerHTML={{ __html: doc.content }}
+              />
+
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                  {doc.metadata.prev ? (
+                    <Link
+                      href={`/docs/${doc.metadata.prev}`}
+                      className="flex items-center gap-2 text-emerald-200 hover:text-white transition"
+                    >
+                      <ChevronRight className="h-4 w-4 rotate-180" />
+                      Previous topic
+                    </Link>
+                  ) : (
+                    <span className="text-slate-500">Start of section</span>
+                  )}
+
+                  {doc.metadata.next ? (
+                    <Link
+                      href={`/docs/${doc.metadata.next}`}
+                      className="ml-auto flex items-center gap-2 text-emerald-200 hover:text-white transition"
+                    >
+                      Next topic
+                      <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  ) : (
+                    <span className="text-slate-500">End of section</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </main>
+
+          {doc.headings.length > 0 && (
+            <div className="hidden xl:block">
+              <TableOfContents headings={doc.headings} />
+            </div>
+          )}
+        </div>
       </div>
 
       <Footer />

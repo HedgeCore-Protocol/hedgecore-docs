@@ -1,25 +1,25 @@
 ---
 title: "Smart Contracts"
-description: "HedgeCore protocol smart contract repository"
+description: "StoneYield protocol smart contract repository"
 next: "github/frontend"
 ---
 
 # Smart Contracts
 
-The HedgeCore smart contracts are open-source and available for review, audit, and contribution.
+The StoneYield smart contracts are open-source and available for review, audit, and contribution.
 
 ## Repository
 
-🔗 **GitHub**: [github.com/xia-zhang-web3/hedgecore](https://github.com/xia-zhang-web3/hedgecore)
+🔗 **GitHub**: [github.com/StoneYield-Labs/stoneyield](https://github.com/StoneYield-Labs/stoneyield)
 
 ## Contract Architecture
 
 ### Core Contracts
 
-- **SUDC**: sUSD token implementation with soul-bound logic
+- **SUDC**: STUSD token implementation with soul-bound logic
 - **StrategyRouter**: Yield strategy routing and management
-- **HUSDCWrapper**: hUSDC wrapper for liquidity layer
-- **HUSDC**: ERC20 token with lock-aware transfers
+- **STUSDWrapper**: sUSDC → STUSD wrapper with lock orchestration
+- **SUSDC**: ERC20 soul-bound staking token with lock-aware transfers
 
 ## Technology Stack
 
@@ -33,12 +33,12 @@ The HedgeCore smart contracts are open-source and available for review, audit, a
 
 ```
 contracts/
-├── SUDC.sol                  # sUSD token
+├── STUSD.sol                 # Transferable wrapper token
+├── SUSDC.sol                 # Soul-bound staking token
+├── STUSDWrapper.sol          # Wrapper contract
 ├── StrategyRouter.sol        # Yield routing
-├── HUSDCWrapper.sol          # Wrapper contract
-├── HUSDC.sol                 # hUSDC token
 └── interfaces/
-    └── IHUSDCWrapper.sol     # Wrapper interface
+    └── ISTUSDWrapper.sol     # Wrapper interface
 
 test/
 ├── SUDC.test.js
@@ -61,8 +61,8 @@ scripts/
 ### Installation
 
 ```bash
-git clone https://github.com/xia-zhang-web3/hedgecore.git
-cd hedgecore
+git clone https://github.com/StoneYield-Labs/stoneyield-contracts-public.git
+cd stoneyield-contracts-public
 npm install
 ```
 
@@ -88,17 +88,17 @@ npx hardhat run scripts/deploy.js --network bscTestnet
 
 ### BSC Mainnet
 
-- **SUDC (sUSD Token)**: `TBA`
+- **SUDC (STUSD Token)**: `TBA`
 - **StrategyRouter**: `TBA`
-- **HUSDCWrapper**: `TBA`
-- **HUSDC (hUSDC Token)**: `TBA`
+- **sUSDCWrapper**: `TBA`
+- **sUSDC (sUSDC Token)**: `TBA`
 
 ### BSC Testnet
 
-- **SUDC (sUSD Token)**: `TBA`
+- **SUDC (STUSD Token)**: `TBA`
 - **StrategyRouter**: `TBA`
-- **HUSDCWrapper**: `TBA`
-- **HUSDC (hUSDC Token)**: `TBA`
+- **sUSDCWrapper**: `TBA`
+- **sUSDC (sUSDC Token)**: `TBA`
 
 ## Security
 
@@ -110,7 +110,7 @@ npx hardhat run scripts/deploy.js --network bscTestnet
 ### Bug Bounty
 
 We encourage responsible disclosure of security vulnerabilities:
-- **Contact**: security@hedgecore.io
+- **Contact**: security@stoneyield.io
 - **Rewards**: Based on severity
 
 ### Best Practices

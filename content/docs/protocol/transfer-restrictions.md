@@ -7,11 +7,11 @@ next: "protocol/contract-design"
 
 # Transfer Restrictions
 
-HedgeCore constructs around the soul-bound token concept—assets maintaining non-transferability by default. This design introduces strong guarantees surrounding protocol behavior and reward eligibility, and helps ensure that tokenized positions cannot liquidate, trade, or deploy in exploitative financial loops.
+StoneYield constructs around the soul-bound token concept—assets maintaining non-transferability by default. This design introduces strong guarantees surrounding protocol behavior and reward eligibility, and helps ensure that tokenized positions cannot liquidate, trade, or deploy in exploitative financial loops.
 
 ## Non-Transferable by Default
 
-sUSD tokens maintain non-transferability unless the holding address receives explicit unlock. This restriction enforces at the contract level through a custom `_update()` override, which acts on every transfer attempt.
+STUSD tokens maintain non-transferability unless the holding address receives explicit unlock. This restriction enforces at the contract level through a custom `_update()` override, which acts on every transfer attempt.
 
 Permitted cases:
 - Generation (`from == address(0)`)
@@ -27,7 +27,7 @@ Regardless of lock period expiration, participants must manually invoke `unlock(
 
 ## Whitelisted DEX Compatibility
 
-Certain DEX addresses or liquidity pools can receive whitelist designation utilizing the `setDex()` function. This permits approved external systems to engage with sUSD in tightly controlled manner, enabling future integrations without compromising protocol security.
+Certain DEX addresses or liquidity pools can receive whitelist designation utilizing the `setDex()` function. This permits approved external systems to engage with STUSD in tightly controlled manner, enabling future integrations without compromising protocol security.
 
 ## Special Addresses
 
@@ -47,4 +47,4 @@ This prevents locked tokens from misuse in protocols or contracts the protocol d
 
 ## Summary
 
-Transfer restrictions are not defect—they constitute the core feature. HedgeCore ensures that token movement only occurs under intentional and authorized circumstances. This preserves hedging integrity, mitigates attack vectors, and reinforces participant accountability throughout the hedging lifecycle.
+Transfer restrictions are not defect—they constitute the core feature. StoneYield ensures that token movement only occurs under intentional and authorized circumstances. This preserves hedging integrity, mitigates attack vectors, and reinforces participant accountability throughout the hedging lifecycle.

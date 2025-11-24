@@ -1,13 +1,13 @@
 ---
 title: "Reward Distribution"
-description: "HedgeCore yield allocation methodology and reward mechanism"
+description: "StoneYield yield allocation methodology and reward mechanism"
 prev: "whitepaper/locking-and-hedging"
 next: "whitepaper/supply-control"
 ---
 
 # Reward Distribution
 
-HedgeCore implements a bifurcated yield allocation system for participant rewards. The protocol generates consistent returns through Venus Protocol integration while preserving governance capacity for supplementary reward initiatives.
+StoneYield implements a bifurcated yield allocation system for participant rewards. The protocol generates consistent returns through Venus Protocol integration while preserving governance capacity for supplementary reward initiatives.
 
 ## Bifurcated Revenue Streams
 
@@ -45,7 +45,7 @@ All distributed rewards (Venus-derived and governance-minted) inherit recipient 
 - Locked addresses: rewards subject to identical `unlockAt` parameters
 - Unlocked/new addresses: 1-second placeholder lock applied, mandating manual release
 
-This preserves sUSD's soul-bound characteristics across all reward distributions.
+This preserves STUSD's soul-bound characteristics across all reward distributions.
 
 ## Verifiable Yield Monitoring
 
@@ -87,4 +87,4 @@ The 7% protocol fee on Venus returns is:
 
 ## Distribution Summary
 
-HedgeCore's reward architecture synthesizes automated Venus Protocol yields with governance adaptability. The transparent 7% performance fee ensures sustainable advancement while participants capture 93% of generated returns. This combined framework delivers foreseeable baseline yields with enhancement potential, maintaining protocol's soul-bound token framework throughout.
+StoneYield's reward architecture synthesizes automated Venus Protocol yields with governance adaptability. The transparent 7% performance fee ensures sustainable advancement while participants capture 93% of generated returns. This combined framework delivers foreseeable baseline yields with enhancement potential, maintaining protocol's soul-bound token framework throughout.

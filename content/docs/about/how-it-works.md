@@ -1,7 +1,7 @@
 ---
 title: "How It Works"
-description: "Core features and mechanics that distinguish HedgeCore"
-prev: "about/what-is-hedgecore"
+description: "Core features and mechanics that distinguish StoneYield"
+prev: "about/what-is-stoneyield"
 next: "features/key-features"
 ---
 
@@ -9,7 +9,7 @@ next: "features/key-features"
 
 ## Soul-Bound Token Architecture
 
-sUSD tokens maintain non-transferability and permanent binding to their minting wallet:
+STUSD tokens maintain non-transferability and permanent binding to their minting wallet:
 - Transfer and trading capabilities disabled
 - Eliminates speculative trading behaviors
 - Reinforces long-duration hedging commitment

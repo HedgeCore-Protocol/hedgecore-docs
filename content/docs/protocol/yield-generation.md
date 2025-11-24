@@ -2,19 +2,19 @@
 title: "Yield Generation"
 description: "Sustainable yield through Venus Protocol integration"
 prev: "protocol/analytics-monitoring"
-next: "protocol/husdc-wrapper"
+next: "protocol/stusd-wrapper"
 ---
 
 # Yield Generation
 
-HedgeCore generates sustainable yields for hedgers through integration with Venus Protocol, the leading lending platform on BNB Chain. This approach provides transparent, market-based returns without relying on token inflation or unsustainable incentives.
+StoneYield generates sustainable yields for hedgers through integration with Venus Protocol, the leading lending platform on BNB Chain. This approach provides transparent, market-based returns without relying on token inflation or unsustainable incentives.
 
 ## How Yield Generation Works
 
 ### 1. Deposit Flow
-When you deposit USDC into HedgeCore:
+When you deposit USDC into StoneYield:
 ```
-Your USDC → StakeableAsset → StrategyRouter → VenusUSDVault → Venus Protocol
+Your USDC → StakeableAsset → StrategyRouter → VenuSTUSDVault → Venus Protocol
 ```
 
 ### 2. Venus Protocol Integration
@@ -27,7 +27,7 @@ Your USDC → StakeableAsset → StrategyRouter → VenusUSDVault → Venus Prot
 - Venus yields accrue automatically in vUSDC token
 - Protocol collects yields periodically
 - 7% protocol fee retained for operations
-- 93% distributed to sUSD holders
+- 93% distributed to STUSD holders
 
 ## Current Yield Metrics
 
@@ -106,7 +106,7 @@ All subject to careful review and governance approval.
 
 ## Yield Distribution Schedule
 
-Yields distribute to sUSD holders through:
+Yields distribute to STUSD holders through:
 - Periodic `rewardMint()` calls by operator
 - Proportional distribution based on holdings
 - Same lock mechanics as deposits
@@ -114,11 +114,11 @@ Yields distribute to sUSD holders through:
 
 ## Summary
 
-HedgeCore's yield generation through Venus Protocol provides:
+StoneYield's yield generation through Venus Protocol provides:
 - **Sustainable returns**: Real yield from lending, not inflation
 - **Transparency**: All rates verifiable on-chain
 - **Security**: Battle-tested protocol integration
 - **Fairness**: 93% of yields go to participants
 - **Simplicity**: Automatic accrual, no complex strategies
 
-This approach ensures that your deposited USDC generates real, sustainable yields while maintaining the security and simplicity that HedgeCore prioritizes.
+This approach ensures that your deposited USDC generates real, sustainable yields while maintaining the security and simplicity that StoneYield prioritizes.

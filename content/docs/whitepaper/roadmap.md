@@ -1,27 +1,27 @@
 ---
 title: "Roadmap"
-description: "HedgeCore development phases and future expansion strategy"
+description: "StoneYield development phases and future expansion strategy"
 prev: "whitepaper/security-model"
 ---
 
 # Roadmap
 
-HedgeCore adopts a staged deployment strategy ensuring controlled launch, community feedback integration, and progressive decentralization. The project emphasizes transparency, security, and protocol maturation over accelerated growth.
+StoneYield adopts a staged deployment strategy ensuring controlled launch, community feedback integration, and progressive decentralization. The project emphasizes transparency, security, and protocol maturation over accelerated growth.
 
 ## Q1 2025 — Foundation Deployment ✅
 
-- Deploy HedgeCore smart contracts to Binance Smart Chain (BSC) ✅
-- Launch StrategyRouter and VenusUSDVault infrastructure ✅
+- Deploy StoneYield smart contracts to Binance Smart Chain (BSC) ✅
+- Launch StrategyRouter and VenuSTUSDVault infrastructure ✅
 - Publish documentation portal and technical specifications ✅
 - Activate `depositAndMint()` and `rewardMint()` under multisig governance ✅
 - Release beta with Venus Protocol integration operational ✅
-- **Deploy hUSDC ecosystem (StUSDCWrapper and hUSDC token)** ✅
+- **Deploy sUSDC ecosystem (StUSDCWrapper and sUSDC token)** ✅
 - **Establish emergency recovery mechanisms (V4)** ✅
 
-## Q1-Q2 2025 — hUSDC Ecosystem Activation 🚀
+## Q1-Q2 2025 — sUSDC Ecosystem Activation 🚀
 
-- **Initiate hUSDC trading on PancakeSwap** ✅
-- **Establish initial hUSDC/USDC liquidity pair**
+- **Initiate sUSDC trading on PancakeSwap** ✅
+- **Establish initial sUSDC/USDC liquidity pair**
 - **Secure LP tokens with 6+ month time-locks**
 - **Deploy automated peg maintenance systems**
 - **Submit platform listings to CoinGecko and CoinMarketCap**
@@ -31,8 +31,8 @@ HedgeCore adopts a staged deployment strategy ensuring controlled launch, commun
 
 ## Q3 2025 — DeFi Integration & Protocol Maturation
 
-- **Integrate hUSDC across leading lending platforms**
-- **Introduce hUSDC yield optimization opportunities**
+- **Integrate sUSDC across leading lending platforms**
+- **Introduce sUSDC yield optimization opportunities**
 - **Develop comprehensive DeFi strategy guides**
 - Remove beta limitations and expand protocol accessibility
 - Enhance staking interface with advanced analytics
@@ -41,7 +41,7 @@ HedgeCore adopts a staged deployment strategy ensuring controlled launch, commun
 
 ## Q4 2025 — Multi-Chain Expansion & Enhanced Functionality
 
-- **Launch hUSDC bridge to Ethereum and Arbitrum networks**
+- **Launch sUSDC bridge to Ethereum and Arbitrum networks**
 - **Implement cross-chain liquidity consolidation**
 - **Release advanced wrapper capabilities (gasless transactions, batch operations)**
 - Evaluate additional blockchain deployments (Polygon, Base)
@@ -51,16 +51,16 @@ HedgeCore adopts a staged deployment strategy ensuring controlled launch, commun
 ## 2026 and Forward
 
 - **Introduce governance token for protocol decentralization**
-- **Develop hUSDC derivative instruments and structured products**
-- **Create hUSDC-based stablecoin index offerings**
+- **Develop sUSDC derivative instruments and structured products**
+- **Create sUSDC-based stablecoin index offerings**
 - **Implement zero-knowledge proof privacy layers**
-- Transition toward DAO governance with hUSDC integration
+- Transition toward DAO governance with sUSDC integration
 - Diversify yield sources beyond Venus (governance-approved)
 - Incorporate supplementary lending protocol support
-- Release comprehensive SDK for hUSDC ecosystem integrations
+- Release comprehensive SDK for sUSDC ecosystem integrations
 - Explore adaptive fee structures responding to market dynamics
-- **Investigate hUSDC as Web3 payment infrastructure**
+- **Investigate sUSDC as Web3 payment infrastructure**
 
 ## Forward-Looking Statement
 
-All roadmap components remain subject to modification based on market evolution, protocol performance, security assessments, and community direction. HedgeCore prioritizes sustainable development over feature velocity.
+All roadmap components remain subject to modification based on market evolution, protocol performance, security assessments, and community direction. StoneYield prioritizes sustainable development over feature velocity.

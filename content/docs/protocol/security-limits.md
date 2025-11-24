@@ -7,14 +7,14 @@ next: "protocol/analytics-monitoring"
 
 # Security & Limits
 
-HedgeCore's architecture incorporates multiple layers of built-in safety mechanisms to minimize risk, ensure system integrity, and prevent misuse. These controls span from smart contract-level protections to operational governance practices.
+StoneYield's architecture incorporates multiple layers of built-in safety mechanisms to minimize risk, ensure system integrity, and prevent misuse. These controls span from smart contract-level protections to operational governance practices.
 
 ## Daily Constraints
 
-To mitigate potential exploit impact and preserve protocol health, HedgeCore enforces daily caps on deposit and mint volumes:
+To mitigate potential exploit impact and preserve protocol health, StoneYield enforces daily caps on deposit and mint volumes:
 
 - **DAILY_DEPOSIT_LIMIT**: Maximum USDC quantity that can deposit across all participants per 24-hour period.
-- **DAILY_MINT_LIMIT**: Maximum sUSD quantity that can generate across all participants per 24-hour period.
+- **DAILY_MINT_LIMIT**: Maximum STUSD quantity that can generate across all participants per 24-hour period.
 
 These limits reset every new day (UTC-based) and track using on-chain counters. Exceeding them results in transaction reverts.
 
@@ -24,17 +24,17 @@ All state-changing functions involving external calls wrap with OpenZeppelin's `
 
 ## Emergency Controls
 
-HedgeCore includes emergency tools deployable by protocol owner (typically multisig):
+StoneYield includes emergency tools deployable by protocol owner (typically multisig):
 
 - `pause()` and `unpause()` to halt or resume sensitive operations
 - `emergencyWithdrawUSDC()` to recover protocol-held USDC in systemic risk scenarios
-- `recoverToken()` to rescue mistakenly sent tokens (excluding sUSD or core stablecoins)
+- `recoverToken()` to rescue mistakenly sent tokens (excluding STUSD or core stablecoins)
 
 These functions gate behind `onlyOwner` access and design for use with timelocks or multisig governance.
 
 ## Whitelisted Operations
 
-To prevent unauthorized integrations, only approved DEXs, routers, and hedging pools may engage with locked sUSD. Whitelisting controls via `setDex()` and stores in the `isDex` mapping.
+To prevent unauthorized integrations, only approved DEXs, routers, and hedging pools may engage with locked STUSD. Whitelisting controls via `setDex()` and stores in the `isDex` mapping.
 
 ## Role Separation and Ownership
 
@@ -50,4 +50,4 @@ Every sensitive action emits events trackable off-chain:
 
 ## Summary
 
-Security in HedgeCore enforces through real on-chain constraints, not just assumed economic incentives. The layered approach—combining rate limiting, reentrancy guards, ownership control, and event logging—makes the system resilient to both technical and economic attacks.
+Security in StoneYield enforces through real on-chain constraints, not just assumed economic incentives. The layered approach—combining rate limiting, reentrancy guards, ownership control, and event logging—makes the system resilient to both technical and economic attacks.

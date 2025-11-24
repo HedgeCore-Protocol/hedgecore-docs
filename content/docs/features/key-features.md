@@ -1,7 +1,7 @@
 ---
 title: "Key Features"
-description: "Core features that distinguish HedgeCore protocol"
-prev: "protocol/husdc-wrapper"
+description: "Core features that distinguish StoneYield protocol"
+prev: "protocol/stusd-wrapper"
 next: "features/use-cases"
 ---
 
@@ -9,7 +9,7 @@ next: "features/use-cases"
 
 ## Soul-Bound Token Architecture
 
-sUSD tokens maintain non-transferability and permanent binding to their minting wallet:
+sUSDC tokens maintain non-transferability and permanent binding to their minting wallet:
 - Cannot transfer or trade during lock period
 - Eliminates speculative trading behaviors
 - Reinforces long-duration hedging commitment
@@ -34,10 +34,10 @@ Yield generation operates through genuine, non-inflationary mechanisms:
 ## Dual-Token System
 
 Unique architecture combining security with liquidity:
-- **sUSD**: Soul-bound tokens for secure yield generation
-- **hUSDC**: Tradeable ERC20 wrapper enabling liquidity access
+- **sUSDC**: Soul-bound ledger of hedged capital
+- **STUSD**: Tradeable ERC20 wrapper enabling liquidity access
 - 1:1 conversion between both tokens
-- Underlying yield continues accruing after wrap
+- Underlying yield continues accruing after wrap/unwarp
 
 ## Security-First Design
 

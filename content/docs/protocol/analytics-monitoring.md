@@ -7,13 +7,13 @@ next: "protocol/yield-generation"
 
 # Analytics & Monitoring
 
-HedgeCore provides several read-only functions to support dashboards, analytics platforms, and automated monitoring tools. These functions expose key protocol data points to enhance transparency and help participants, developers, and integrators make informed decisions.
+StoneYield provides several read-only functions to support dashboards, analytics platforms, and automated monitoring tools. These functions expose key protocol data points to enhance transparency and help participants, developers, and integrators make informed decisions.
 
 ## Protocol Statistics
 
 The `getProtocolStats()` function returns high-level information about current protocol state:
 
-- `totalSupply`: Total sUSD in circulation
+- `totalSupply`: Total STUSD in circulation
 - `totalUSDCDeposited`: Aggregate USDC ever deposited
 - `totalRewardsDistributed`: Total rewards minted
 - `totalActiveStakers`: Count of unique hedging participants
@@ -39,7 +39,7 @@ The following functions expose per-participant analytics:
 - `getUserInfo(address)`:
   - `isLocked`: Whether the participant currently locked
   - `remainingTime`: Seconds left until unlock
-  - `totalBalance`: Current sUSD balance
+  - `totalBalance`: Current STUSD balance
   - `stakedAmount`: All-time USDC deposited by participant
 
 - `getAvailableActions(address)`:
@@ -58,4 +58,4 @@ These can index using The Graph, SubQuery, or any event-driven backend to provid
 
 ## Summary
 
-HedgeCore exposes comprehensive, low-cost read access to essential protocol and participant data. These analytics endpoints support transparency, enable better tooling, and reduce reliance on off-chain assumptions when integrating or building on top of the protocol.
+StoneYield exposes comprehensive, low-cost read access to essential protocol and participant data. These analytics endpoints support transparency, enable better tooling, and reduce reliance on off-chain assumptions when integrating or building on top of the protocol.

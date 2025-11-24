@@ -1,17 +1,17 @@
 ---
 title: "Frontend"
-description: "HedgeCore protocol user interface repository"
+description: "StoneYield protocol user interface repository"
 prev: "github/smart-contracts"
 next: "community/join"
 ---
 
 # Frontend
 
-The HedgeCore frontend provides an intuitive interface for interacting with the protocol's smart contracts.
+The StoneYield frontend provides an intuitive interface for interacting with the protocol's smart contracts.
 
 ## Repository
 
-🔗 **GitHub**: [github.com/xia-zhang-web3/hedgecore/frontend](https://github.com/xia-zhang-web3/hedgecore/tree/main/frontend)
+🔗 **GitHub**: [github.com/StoneYield-Labs/stoneyield/frontend](https://github.com/StoneYield-Labs/stoneyield/tree/main/frontend)
 
 ## Technology Stack
 
@@ -27,10 +27,10 @@ The HedgeCore frontend provides an intuitive interface for interacting with the 
 ### Core Functionality
 
 - **Wallet Connection**: MetaMask, WalletConnect support
-- **Deposit USDC**: Mint soul-bound sUSD tokens
+- **Deposit USDC**: Mint soul-bound STUSD tokens
 - **View Positions**: Real-time balance and lock status
 - **Unlock Tokens**: Transition from locked to transferable state
-- **Wrap/Unwrap**: Convert between sUSD and hUSDC
+- **Wrap/Unwrap**: Convert between STUSD and sUSDC
 - **Analytics Dashboard**: Protocol statistics and APY tracking
 
 ### User Experience
@@ -75,8 +75,8 @@ frontend/
 ### Installation
 
 ```bash
-git clone https://github.com/xia-zhang-web3/hedgecore.git
-cd hedgecore/frontend
+git clone https://github.com/StoneYield-Labs/stoneyield.git
+cd stoneyield/frontend
 npm install
 ```
 
@@ -88,7 +88,7 @@ Create `.env.local`:
 NEXT_PUBLIC_CHAIN_ID=56
 NEXT_PUBLIC_RPC_URL=https://bsc-dataseed.binance.org
 NEXT_PUBLIC_SUSDC_ADDRESS=0x...
-NEXT_PUBLIC_HUSDC_ADDRESS=0x...
+NEXT_PUBLIC_STUSD_ADDRESS=0x...
 NEXT_PUBLIC_WRAPPER_ADDRESS=0x...
 ```
 
@@ -144,12 +144,12 @@ export function DepositForm() {
 ```typescript
 // components/dashboard/Balance.tsx
 export function Balance() {
-  const { sUSDBalance, hUSDCBalance } = useBalance()
+  const { STUSDBalance, sUSDCBalance } = useBalance()
 
   return (
     <div>
-      <p>sUSD: {formatUnits(sUSDBalance, 18)}</p>
-      <p>hUSDC: {formatUnits(hUSDCBalance, 18)}</p>
+      <p>STUSD: {formatUnits(STUSDBalance, 18)}</p>
+      <p>sUSDC: {formatUnits(sUSDCBalance, 18)}</p>
     </div>
   )
 }

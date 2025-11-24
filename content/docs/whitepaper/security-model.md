@@ -1,13 +1,13 @@
 ---
 title: "Security Model"
-description: "Multi-layered security architecture and risk management in HedgeCore protocol"
-prev: "whitepaper/husdc-ecosystem"
+description: "Multi-layered security architecture and risk management in StoneYield protocol"
+prev: "whitepaper/susdc-ecosystem"
 next: "whitepaper/governance-multisig"
 ---
 
 # Security Model
 
-HedgeCore's defensive framework integrates protocol-level restrictions with thoroughly audited integrations. The architecture maintains minimal trust requirements and blockchain-verified enforceability while incorporating Venus Protocol for consistent yield production.
+StoneYield's defensive framework integrates protocol-level restrictions with thoroughly audited integrations. The architecture maintains minimal trust requirements and blockchain-verified enforceability while incorporating Venus Protocol for consistent yield production.
 
 ## Foundation Security Principles
 
@@ -28,7 +28,7 @@ Venus Protocol represents the singular external protocol dependency, selected ba
 
 ## Restricted Minting and Movement
 
-All sUSD generation pathways (`depositAndMint`, `rewardMint`) operate under `onlyOwner` restrictions. Token transfers face soul-bound constraints and remain prohibited absent explicit authorization through lock status completion or DEX whitelist inclusion.
+All STUSD generation pathways (`depositAndMint`, `rewardMint`) operate under `onlyOwner` restrictions. Token transfers face soul-bound constraints and remain prohibited absent explicit authorization through lock status completion or DEX whitelist inclusion.
 
 ## Deliberate Unlock Requirement
 
@@ -44,7 +44,7 @@ Protocol incorporates:
 
 - `pause()` and `unpause()` for minting and redemption flow suspension
 - `emergencyWithdrawUSDC()` for protocol capital evacuation
-- `recoverToken()` for mistakenly transferred non-sUSD asset recovery
+- `recoverToken()` for mistakenly transferred non-STUSD asset recovery
 - `maintenanceOperation()` enabling KYC-verified emergency fund recovery (V4)
 
 These mechanisms operate under owner-only restriction with anticipated multisig governance and potential timelock implementation.
@@ -101,7 +101,7 @@ All critical operations generate events enabling:
   - Post-unlock withdrawal availability
 
 ### Liquidation Exposure
-- **Exposure**: None - HedgeCore exclusively supplies, never borrows
+- **Exposure**: None - StoneYield exclusively supplies, never borrows
 - **Defense**: Single-direction lending eliminates liquidation vectors
 
 ### Integration Fault Risk
@@ -112,21 +112,21 @@ All critical operations generate events enabling:
   - Emergency USDC recovery functions
   - Modular architecture enabling strategy modifications
 
-## hUSDC Wrapper Security Framework
+## STUSD Wrapper Security Framework
 
 ### Wrapper Contract Protection
-The HUSDCWrapper contract implements comprehensive security measures:
+The sUSDCWrapper contract implements comprehensive security measures:
 - **Immutable Architecture**: No administrative fund drainage functions
-- **One-Way Design**: Only hUSDC → sUSD conversion (no unwrap)
-- **Reentrancy Defense**: Protected hedgeWrap operations
-- **Lock Validation**: Prevents premature vested token transfers via getHedgeLockInfo
+- **One-Way Design**: Only sUSDC → STUSD conversion (no unwrap)
+- **Reentrancy Defense**: Protected wrapTokens operations
+- **Lock Validation**: Prevents premature vested token transfers via getLockInfo
 - **Permission-Based Access**: Restricted token locking to authorized addresses
 
 ### Economic Protection
 The one-way wrapper maintains security through:
 - **Simple Architecture**: No complex unwrap mechanisms to exploit
-- **Direct Conversion**: Straightforward hedgeWrap() and issueFromWrapper() operations
-- **Lock Enforcement**: Contract-level lock verification via getHedgeLockInfo()
+- **Direct Conversion**: Straightforward wrapTokens() and issueFromWrapper() operations
+- **Lock Enforcement**: Contract-level lock verification via getLockInfo()
 - **No Reverse Path**: Eliminates unwrap-related attack vectors
 
 ## Layered Security Architecture
@@ -144,7 +144,7 @@ The one-way wrapper maintains security through:
 - No direct user fund custody
 - Explicit responsibility separation
 
-### 3. Venus Vault (VenusUSDVault)
+### 3. Venus Vault (VenuSTUSDVault)
 - ERC-4626 standard compliance
 - Minimal, security-auditable codebase
 - Exclusive Venus interaction logic
@@ -152,4 +152,4 @@ The one-way wrapper maintains security through:
 
 ## Conclusion
 
-HedgeCore's security architecture harmonizes DeFi yield production with comprehensive risk mitigation. Through limited integration with battle-hardened protocols like Venus, implementation of multiple defensive layers, and emergency control maintenance, the protocol delivers sustainable returns while prioritizing participant asset protection. The constrained design and explicit safeguards establish protocol resilience against technical and economic attack vectors.
+StoneYield's security architecture harmonizes DeFi yield production with comprehensive risk mitigation. Through limited integration with battle-hardened protocols like Venus, implementation of multiple defensive layers, and emergency control maintenance, the protocol delivers sustainable returns while prioritizing participant asset protection. The constrained design and explicit safeguards establish protocol resilience against technical and economic attack vectors.

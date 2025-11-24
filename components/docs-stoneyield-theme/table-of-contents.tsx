@@ -38,22 +38,21 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   if (headings.length === 0) return null
 
   return (
-    <aside className="hidden xl:block w-64 p-6 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
-      <div className="space-y-2">
-        <h4 className="text-sm font-semibold text-gray-900 mb-4">On This Page</h4>
+    <aside className="hidden w-72 xl:block">
+      <div className="sticky top-24 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+        <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-200/80">
+          On this page
+        </h4>
         <nav>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-sm text-slate-300">
             {headings.map((heading) => (
-              <li
-                key={heading.id}
-                className={heading.level === 3 ? "pl-4" : ""}
-              >
+              <li key={heading.id} className={heading.level === 3 ? "pl-4" : ""}>
                 <a
                   href={`#${heading.id}`}
-                  className={`text-sm transition-colors block py-1 ${
+                  className={`block rounded-xl px-2 py-1 transition ${
                     activeId === heading.id
-                      ? "text-blue-600 font-medium"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "bg-emerald-400/20 text-white"
+                      : "hover:text-white"
                   }`}
                 >
                   {heading.text}

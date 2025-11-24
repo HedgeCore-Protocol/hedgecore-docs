@@ -1,27 +1,27 @@
 ---
 title: "Join the Community"
-description: "Connect with the HedgeCore community across platforms"
+description: "Connect with the StoneYield community across platforms"
 prev: "github/frontend"
 next: "community/contribute"
 ---
 
 # Join the Community
 
-Join the HedgeCore community and stay connected with us on social media.
+Join the StoneYield community and stay connected with us on social media.
 
 ## Official Channels
 
 ### Twitter / X
-**[x.com/hedgecore_io](https://x.com/hedgecore_io)**
+**[x.com/stoneyield.io](https://x.com/stoneyield.io)**
 
 ### Telegram
-**[t.me/hedgecore_io](https://t.me/hedgecore_io)**
+**[t.me/stoneyield.io](https://t.me/stoneyield.io)**
 
 ### Discord
-**[discord.gg/hedgecore](https://discord.gg/hedgecore)**
+**[discord.gg/stoneyield](https://discord.gg/stoneyield)**
 
 ### Instagram
-**[instagram.com/hedgecore_io](https://instagram.com/hedgecore_io)**
+**[instagram.com/stoneyield.io](https://instagram.com/stoneyield.io)**
 
 ### GitHub
-**[github.com/HedgeCore-Protocol](https://github.com/HedgeCore-Protocol)**
+**[github.com/StoneYield-Labs](https://github.com/StoneYield-Labs)**

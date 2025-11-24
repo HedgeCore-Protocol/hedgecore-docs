@@ -7,13 +7,13 @@ next: "protocol/security-limits"
 
 # Contract Design
 
-The HedgeCore protocol comprises a modular smart contract architecture engineered to generate yields while maintaining security and operational adaptability. The architecture isolates concerns between token administration, yield routing, and strategy execution.
+The StoneYield protocol comprises a modular smart contract architecture engineered to generate yields while maintaining security and operational adaptability. The architecture isolates concerns between token administration, yield routing, and strategy execution.
 
 ## Architecture Overview
 
 ### Core Contracts
 
-#### 1. StakeableAssetImpl (sUSD Token)
+#### 1. StakeableAssetImpl (STUSD Token)
 Inherits from OpenZeppelin upgradeable components:
 - `ERC20Upgradeable`: standard token interface with upgradeability
 - `ERC20PermitUpgradeable`: enables gasless approvals (EIP-2612)
@@ -28,7 +28,7 @@ Administers yield generation strategies:
 - Controls withdrawals from yield sources
 - Owner-managed strategy configuration
 
-#### 3. VenusUSDVault
+#### 3. VenuSTUSDVault
 ERC-4626 compliant vault for Venus integration:
 - Deposits USDC into Venus Protocol
 - Manages vUSDC tokens
@@ -42,10 +42,10 @@ ERC-4626 compliant vault for Venus integration:
 - **Duration-based locks**: Implemented using `unlockAt` mapping per wallet.
 - **Manual unlocking**: Participants must invoke `unlock()` to enable transferability.
 - **Whitelist control**: DEX and pool addresses can receive whitelist via `setDex()`.
-- **Reward generation**: Admin can issue locked or placeholder-locked sUSD using `rewardMint()`.
+- **Reward generation**: Admin can issue locked or placeholder-locked STUSD using `rewardMint()`.
 - **Emergency functions**: Includes `pause()`, `adminUnlock()`, `sweepUSDC()`.
 
-### Yield Production (StrategyRouter + VenusUSDVault)
+### Yield Production (StrategyRouter + VenuSTUSDVault)
 - **Automated routing**: USDC deposits automatically route to Venus Protocol
 - **Yield optimization**: Deposits earn lending interest on Venus
 - **Strategy management**: Owner can adjust weights and introduce new strategies
@@ -83,11 +83,11 @@ The contract optimizes for gas usage:
 ```
 User Deposits USDC
        ↓
-StakeableAssetImpl (mints sUSD)
+StakeableAssetImpl (mints STUSD)
        ↓
 StrategyRouter (routes to strategies)
        ↓
-VenusUSDVault (deposits to Venus)
+VenuSTUSDVault (deposits to Venus)
        ↓
 Venus Protocol (generates yield)
        ↓
@@ -98,4 +98,4 @@ Protocol retains 7% fee
 
 ## Summary
 
-The HedgeCore protocol combines soul-bound token mechanics with automated yield generation through Venus Protocol. This modular design provides participants with transparent, sustainable yields while maintaining the security and non-transferability features essential to the protocol's mission. The 7% protocol fee ensures long-term sustainability while participants benefit from 93% of generated yields.
+The StoneYield protocol combines soul-bound token mechanics with automated yield generation through Venus Protocol. This modular design provides participants with transparent, sustainable yields while maintaining the security and non-transferability features essential to the protocol's mission. The 7% protocol fee ensures long-term sustainability while participants benefit from 93% of generated yields.

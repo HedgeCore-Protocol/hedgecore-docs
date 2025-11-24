@@ -1,31 +1,31 @@
 ---
 title: "Tokenomics"
-description: "sUSD and hUSDC economic model, supply dynamics, fee structure, and reward mechanisms"
+description: "STUSD and sUSDC economic model, supply dynamics, fee structure, and reward mechanisms"
 prev: "whitepaper/protocol-architecture"
 next: "whitepaper/yield-generation"
 ---
 
 # Tokenomics
 
-HedgeCore introduces a supply model without predefined maximums. Token generation responds dynamically to protocol activities—participant deposits and controlled reward emissions drive sUSD creation.
+StoneYield introduces a supply model without predefined maximums. Token generation responds dynamically to protocol activities—participant deposits and controlled reward emissions drive STUSD creation.
 
 ## Genesis and Liquidity Bootstrap
 
-At launch, sUSD supply begins at zero. To establish decentralized exchange liquidity (for example, on PancakeSwap), protocol administrators may pre-generate a designated quantity—potentially 5,000 sUSD—matched with equivalent USDC from treasury reserves.
+At launch, STUSD supply begins at zero. To establish decentralized exchange liquidity (for example, on PancakeSwap), protocol administrators may pre-generate a designated quantity—potentially 5,000 STUSD—matched with equivalent USDC from treasury reserves.
 
 This bootstrapping executes through `rewardMint()` or `_mint()` functions, with `adminUnlock()` enabling liquidity pool compatibility.
 
 Implementation steps:
-- Generate 5,000 sUSD to treasury wallet
+- Generate 5,000 STUSD to treasury wallet
 - Allocate 5,000 USDC from protocol reserves
-- Establish `sUSD/USDC` pair on DEX
+- Establish `STUSD/USDC` pair on DEX
 - Authorize DEX router via `setDex()`
 
 This liquidity provision improves protocol accessibility and establishes pricing benchmarks rather than encouraging speculative activity.
 
 ## Token Generation Pathways
 
-sUSD enters circulation through:
+STUSD enters circulation through:
 
 - `depositAndMint()` – Direct 1:1 user deposits with enforced time-locks
 - `rewardMint()` – Governance-authorized reward distribution
@@ -38,7 +38,7 @@ No algorithmic expansion, reward scaling, or rebase mechanisms exist. Every mint
 
 ## Token Reduction Methods
 
-sUSD exits circulation via:
+STUSD exits circulation via:
 
 - `earlyRedeem()` – Owner-initiated burn with USDC return
 - `burn(address, amount)` – Governance-triggered manual reduction
@@ -48,13 +48,13 @@ Burning occurs infrequently, reserved for correction scenarios, liquidity rebala
 
 ## Dual-Token Structure
 
-HedgeCore implements two complementary tokens:
+StoneYield implements two complementary tokens:
 
-- **sUSD** (Soul-bound USDC): Immobile, locked yield-bearing positions
-- **hUSDC** (Hedged USDC): Tradeable wrapper providing liquidity access
+- **STUSD** (Soul-bound USDC): Immobile, locked yield-bearing positions
+- **sUSDC** (StoneYield USDC): Tradeable wrapper providing liquidity access
 
-Participants deposit USDC, receive sUSD positions. For liquidity needs, hUSDC wrapping enables market participation while maintaining yield generation.
+Participants deposit USDC, receive STUSD positions. For liquidity needs, sUSDC wrapping enables market participation while maintaining yield generation.
 
 ## Economic Summary
 
-HedgeCore's token economics prioritize utility over speculation. All circulating supply maintains USDC backing at generation, ties to wallet-specific staking commitments, and operates exclusively through transparent protocol functions.
+StoneYield's token economics prioritize utility over speculation. All circulating supply maintains USDC backing at generation, ties to wallet-specific staking commitments, and operates exclusively through transparent protocol functions.

@@ -7,11 +7,11 @@ next: "protocol/flash-loan-resistance"
 
 # Locking Mechanism
 
-HedgeCore enforces a duration-based locking mechanism to ensure stability and discourage rapid inflow/outflow behaviors commonly observed in yield protocols. This mechanism applies to all sUSD tokens generated through deposits or reward allocations.
+StoneYield enforces a duration-based locking mechanism to ensure stability and discourage rapid inflow/outflow behaviors commonly observed in yield protocols. This mechanism applies to all STUSD tokens generated through deposits or reward allocations.
 
 ## Lock Duration Enforcement
 
-Every time sUSD generates—whether through participant deposit or protocol reward—it receives assigned lock duration. The period defines in seconds and stores per participant utilizing the `unlockAt` mapping. Throughout this period, the participant's tokens maintain soul-bound status and non-transferability.
+Every time STUSD generates—whether through participant deposit or protocol reward—it receives assigned lock duration. The period defines in seconds and stores per participant utilizing the `unlockAt` mapping. Throughout this period, the participant's tokens maintain soul-bound status and non-transferability.
 
 - **Minimum lock**: 1 hour
 - **Maximum lock**: 365 days
@@ -38,4 +38,4 @@ Developers or participants can access current lock status via:
 - `getUserInfo(address)` → comprehensive participant status including lock and hedge data
 - `getAvailableActions(address)` → displays whether the address can approve, transfer, or unlock
 
-These helper functions simplify building secure and responsive interfaces around sUSD token operations.
+These helper functions simplify building secure and responsive interfaces around STUSD token operations.

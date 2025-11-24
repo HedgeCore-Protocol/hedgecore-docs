@@ -12,7 +12,7 @@ const sidebarNavItems = [
       { title: "Abstract", href: "/docs/whitepaper/abstract" },
       { title: "Protocol Architecture", href: "/docs/whitepaper/protocol-architecture" },
       { title: "Tokenomics", href: "/docs/whitepaper/tokenomics" },
-      { title: "hUSDC Ecosystem", href: "/docs/whitepaper/husdc-ecosystem" },
+      { title: "sUSDC Ecosystem", href: "/docs/whitepaper/susdc-ecosystem" },
       { title: "Token Lifecycle", href: "/docs/whitepaper/token-lifecycle" },
       { title: "Locking & Hedging Logic", href: "/docs/whitepaper/locking-and-hedging" },
       { title: "Reward Distribution", href: "/docs/whitepaper/reward-distribution" },
@@ -25,7 +25,7 @@ const sidebarNavItems = [
   {
     title: "About",
     items: [
-      { title: "What is HedgeCore?", href: "/docs/about/what-is-hedgecore" },
+      { title: "What is StoneYield?", href: "/docs/about/what-is-stoneyield" },
       { title: "How It Works", href: "/docs/about/how-it-works" },
     ],
   },
@@ -40,7 +40,7 @@ const sidebarNavItems = [
       { title: "Security & Limits", href: "/docs/protocol/security-limits" },
       { title: "Analytics & Monitoring", href: "/docs/protocol/analytics-monitoring" },
       { title: "Yield Generation", href: "/docs/protocol/yield-generation" },
-      { title: "hUSDC Wrapper", href: "/docs/protocol/husdc-wrapper" },
+      { title: "STUSD Wrapper", href: "/docs/protocol/stusd-wrapper" },
     ],
   },
   {
@@ -91,10 +91,10 @@ export function Sidebar() {
     <nav className="space-y-8">
       {sidebarNavItems.map((category) => (
         <div key={category.title}>
-          <div className="mb-3 text-xs font-medium tracking-wide text-gray-400 uppercase">
+          <div className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-emerald-200/70">
             {category.title}
           </div>
-          <ul className="space-y-0.5">
+          <ul className="space-y-1">
             {category.items.map((item) => {
               const isActive = pathname === item.href
 
@@ -102,11 +102,11 @@ export function Sidebar() {
                 <li key={item.title}>
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 text-sm rounded-lg transition-all duration-200
+                    className={`block rounded-2xl border px-3 py-2 text-sm font-medium transition-all duration-200
                       ${
                         isActive
-                          ? "text-blue-600 bg-blue-50 font-medium"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                          ? "border-emerald-400/60 bg-emerald-400/20 text-white shadow-[0_10px_30px_rgba(16,255,164,0.15)]"
+                          : "border-white/5 bg-white/5 text-slate-300 hover:border-white/20 hover:text-white"
                       }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -126,15 +126,17 @@ export function Sidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="md:hidden fixed bottom-6 right-6 z-50 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        className="md:hidden fixed bottom-6 right-6 z-50 rounded-full border border-white/20 bg-black/60 p-4 text-white shadow-xl shadow-emerald-500/20 transition hover:border-emerald-300"
         aria-label="Toggle menu"
       >
-        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block w-64 border-r border-gray-100 p-8 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto bg-white">
-        <SidebarContent />
+      <aside className="hidden w-72 shrink-0 rounded-[32px] border border-white/10 bg-white/5 p-6 text-sm text-slate-200 shadow-[0_25px_60px_rgba(0,0,0,0.35)] md:block">
+        <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+          <SidebarContent />
+        </div>
       </aside>
 
       {/* Mobile Sidebar */}
@@ -147,7 +149,7 @@ export function Sidebar() {
           />
 
           {/* Sidebar */}
-          <aside className="md:hidden fixed left-0 top-14 bottom-0 w-80 max-w-[85vw] bg-white z-40 overflow-y-auto p-6 shadow-xl">
+          <aside className="md:hidden fixed left-0 top-16 bottom-0 z-40 w-80 max-w-[85vw] overflow-y-auto border-r border-white/10 bg-[#030910] p-6 shadow-xl shadow-black/50">
             <SidebarContent />
           </aside>
         </>

@@ -1,6 +1,6 @@
 ---
 title: "Use Cases"
-description: "Real-world applications and scenarios for HedgeCore protocol"
+description: "Real-world applications and scenarios for StoneYield protocol"
 prev: "features/key-features"
 ---
 
@@ -11,8 +11,8 @@ prev: "features/key-features"
 ### Scenario
 Risk-averse participants seeking stable returns without exposure to volatile DeFi strategies.
 
-### HedgeCore Solution
-- Deposit USDC to receive soul-bound sUSD
+### StoneYield Solution
+- Deposit USDC to receive soul-bound STUSD
 - Earn sustainable yields through Venus Protocol lending
 - 93% of generated APY distributed to holders
 - No impermanent loss or complex strategy risk
@@ -24,30 +24,30 @@ Risk-averse participants seeking stable returns without exposure to volatile DeF
 - Enhanced security through non-transferability
 - Emergency withdrawal mechanisms
 
-## 2. Yield Position Entry via hUSDC
+## 2. Liquidity Via STUSD
 
 ### Scenario
-Participants hold tradeable hUSDC tokens and want to access yield generation.
+Desks with sUSDC exposure need portable liquidity for trading, liquidity provision, or settlements.
 
-### HedgeCore Solution
-- Convert hUSDC to sUSD through wrapper contract
-- Start earning Venus Protocol yields immediately
-- Conversion is one-way (no reverse path)
-- Optional time-locks for vesting schedules
+### StoneYield Solution
+- Wrap sUSDC into STUSD at a 1:1 ratio using the StoneYield wrapper
+- Deploy STUSD across DEX pairs, lending markets, or automation rails
+- Unwrap STUSD back to sUSDC when the liquidity assignment is complete
+- Monitor wrapper dashboards for proof-of-collateral and available capacity
 
 ### Benefits
-- Access yield generation from liquid holdings
-- Simple, secure one-way conversion
-- No conversion fees
-- Immediate yield accrual
+- Seamless bridge between protected yield and liquid capital
+- STUSD retains full ERC20 compatibility
+- Capital efficiency without compromising the hedge
+- Transparent telemetry for every minted STUSD
 
 ## 3. Institutional Token Vesting
 
 ### Scenario
 Teams and investors require programmable token vesting schedules with built-in security.
 
-### HedgeCore Solution
-- Use `hedgeWrapLocked()` function for time-locked sUSD
+### StoneYield Solution
+- Use `wrapWithLock()` function for time-locked STUSD
 - Set custom unlock schedules per recipient
 - Lock enforcement at contract level
 - Yield continues accruing during vesting
@@ -63,42 +63,42 @@ Teams and investors require programmable token vesting schedules with built-in s
 ### Scenario
 Advanced users want to maximize returns by combining multiple yield sources.
 
-### HedgeCore Solution
-- Deposit USDC to earn Venus yields (base layer)
-- Trade hUSDC on DEXs for liquidity
-- Provide hUSDC/USDC liquidity to earn trading fees
-- Base Venus yield continues for converted positions
+### StoneYield Solution
+- Deposit USDC to earn Venus yields via sUSDC (base layer)
+- Wrap a portion into STUSD for LP incentives or lending rewards
+- Stack yield streams: Venus APY + trading fees + partner emissions
+- Unwrap to sUSDC without unwinding the hedge core
 
 ### Benefits
 - Multiple yield streams available
-- Flexible liquidity options
-- Additional DEX trading fee income
-- Standard ERC20 compatibility for hUSDC
+- Flexible liquidity routing
+- Additional DEX or lending incentives
+- STUSD offers ERC20 compatibility while sUSDC stays protected
 
 ## 5. Collateralized Lending
 
 ### Scenario
 Participants want to use stablecoin holdings as collateral without selling.
 
-### HedgeCore Solution
-- Trade hUSDC on secondary markets
-- Deposit hUSDC as collateral in lending protocols
-- Borrow other assets against hUSDC
-- Maintain exposure to ecosystem
+### StoneYield Solution
+- Hold STUSD and deposit it as collateral in lending protocols that support ERC20 stablecoins
+- Borrow additional capital without closing the core sUSDC position
+- Maintain hedged exposure while unlocking working capital
+- Use StoneYield monitoring tools to track wrapper health
 
 ### Benefits
 - Leverage stablecoin position
 - Access capital without liquidating
-- Standard ERC20 compatibility
-- Active secondary market
+- ERC20 compatibility via STUSD
+- Active secondary markets provide exit liquidity
 
 ## 6. Protocol Treasury Management
 
 ### Scenario
 DAOs and protocols need secure, yield-generating reserves management.
 
-### HedgeCore Solution
-- Allocate treasury USDC to HedgeCore
+### StoneYield Solution
+- Allocate treasury USDC to StoneYield
 - Earn sustainable yields through Venus integration
 - Multisig control over deposits and withdrawals
 - Special address designation for operational flexibility
@@ -112,29 +112,29 @@ DAOs and protocols need secure, yield-generating reserves management.
 ## 7. Market Making and Trading
 
 ### Scenario
-Sophisticated traders provide liquidity and trade hUSDC tokens.
+Sophisticated traders provide liquidity and trade sUSDC tokens.
 
-### HedgeCore Solution
-- Trade hUSDC on DEXs (PancakeSwap, etc.)
-- Provide liquidity for trading fee income
-- Arbitrage opportunities in secondary markets
-- Support ecosystem liquidity
+### StoneYield Solution
+- Trade STUSD pairs on DEXs (PancakeSwap, etc.)
+- Provide STUSD/USDC liquidity for trading fee income
+- Capture arbitrage opportunities across venues
+- Support on-chain liquidity that backs institutional flows
 
 ### Benefits
-- Active trading markets for hUSDC
-- Earn yields from liquidity provision
-- Standard ERC20 interface
-- Support protocol ecosystem health
+- Active trading markets for STUSD
+- Earn yield from liquidity provision
+- Standard ERC20 interface simplifies tooling
+- Liquidity depth supports institutional onboarding
 
 ## 8. Cross-Protocol Yield Strategies
 
 ### Scenario
-Yield aggregators want to integrate HedgeCore into complex strategies.
+Yield aggregators want to integrate StoneYield into complex strategies.
 
-### HedgeCore Solution
-- Integrate hUSDC into automated yield strategies
+### StoneYield Solution
+- Integrate STUSD into automated yield strategies
 - Rebalance between protocols as rates change
-- Trade on secondary markets for liquidity
+- Tap secondary markets for instant liquidity
 - Standard ERC20 interface simplifies integration
 
 ### Benefits
@@ -145,4 +145,4 @@ Yield aggregators want to integrate HedgeCore into complex strategies.
 
 ## Summary
 
-HedgeCore's dual-token architecture enables diverse use cases from conservative yield generation to sophisticated DeFi strategies. The one-way wrapper (hUSDC → sUSD) provides a straightforward path to yield generation, while hUSDC's tradeable nature enables secondary market activity and DeFi composability without compromising sUSD's security model.
+StoneYield's dual-token architecture empowers everything from conservative treasury management to complex DeFi strategies. Treasuries decide when capital sits in the soul-bound sUSDC layer or when it should roam the ecosystem as STUSD — all while staying verifiably hedged.

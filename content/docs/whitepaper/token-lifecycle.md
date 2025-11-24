@@ -1,22 +1,22 @@
 ---
 title: "Token Lifecycle"
-description: "sUSD token progression through deposit, locking, unlocking, and reward phases"
+description: "STUSD token progression through deposit, locking, unlocking, and reward phases"
 prev: "whitepaper/tokenomics"
 next: "whitepaper/locking-and-hedging"
 ---
 
 # Token Lifecycle
 
-The HedgeCore token lifecycle implements regulated phases engineered to enforce staking commitment, yield qualification, and transfer security. Distinguished from conventional staking tokens, sUSD operates as soul-bound with precisely defined state progressions.
+The StoneYield token lifecycle implements regulated phases engineered to enforce staking commitment, yield qualification, and transfer security. Distinguished from conventional staking tokens, STUSD operates as soul-bound with precisely defined state progressions.
 
 ## Phase 1: Deposit and Generation
 
-Lifecycle initiation occurs when participants authorize protocol USDC transfers and the owner (typically multisignature) executes `depositAndMint()`. The contract generates sUSD at 1:1 parity and establishes wallet time-locks for participant-specified durations (minimum 1 hour, maximum 365 days). Lock timestamps record in the `unlockAt` mapping.
+Lifecycle initiation occurs when participants authorize protocol USDC transfers and the owner (typically multisignature) executes `depositAndMint()`. The contract generates STUSD at 1:1 parity and establishes wallet time-locks for participant-specified durations (minimum 1 hour, maximum 365 days). Lock timestamps record in the `unlockAt` mapping.
 
 ## Phase 2: Locked Staking Duration
 
 Throughout lock periods, wallets:
-- Prohibit sUSD transfers or approvals freely
+- Prohibit STUSD transfers or approvals freely
 - Prevent token deployment in external protocols
 - Qualify for reward allocation via `rewardMint()`
 
@@ -29,8 +29,8 @@ Upon lock expiration, tokens maintain non-transferability until participants inv
 ## Phase 4: Post-Unlock Status
 
 Unlocked wallets gain capacity to:
-- Transfer sUSD (when recipients also maintain unlocked or whitelisted status)
-- Authorize contracts for sUSD utilization (subject to protocol parameters)
+- Transfer STUSD (when recipients also maintain unlocked or whitelisted status)
+- Authorize contracts for STUSD utilization (subject to protocol parameters)
 - Engage with whitelisted DEXs or liquidity integrations
 
 When participant balances reach zero, addresses receive automatic unlocked designation via internal mechanisms (`_autoUnlock()`).
@@ -38,7 +38,7 @@ When participant balances reach zero, addresses receive automatic unlocked desig
 ## Reward Progression
 
 Rewards deploy through `rewardMint()`, which:
-- Generates sUSD to participants
+- Generates STUSD to participants
 - Inherits existing lock parameters when established
 - Applies 1-second placeholder lock when none exists
 
@@ -46,7 +46,7 @@ This prevents instantaneous reward liquidation and maintains yield connection to
 
 ## Accelerated Exit
 
-The owner may invoke `earlyRedeem()` enabling participants to exit prematurely, burning their sUSD and recovering USDC 1:1. This function targets exceptional circumstances and excludes participant-callable access.
+The owner may invoke `earlyRedeem()` enabling participants to exit prematurely, burning their STUSD and recovering USDC 1:1. This function targets exceptional circumstances and excludes participant-callable access.
 
 ## Lifecycle Protection
 
@@ -58,12 +58,12 @@ All lifecycle transitions enforce through contract logic:
 
 The outcome delivers yield-bearing tokens with protocol enforcement, eliminating conventional transferable asset vulnerabilities.
 
-## hUSDC Wrapper Integration
+## sUSDC Wrapper Integration
 
-For liquidity needs during locked periods, participants can utilize hUSDC wrapper:
-- Wraps locked sUSD into tradeable hUSDC
-- Maintains underlying sUSD yield generation
+For liquidity needs during locked periods, participants can utilize sUSDC wrapper:
+- Wraps locked STUSD into tradeable sUSDC
+- Maintains underlying STUSD yield generation
 - Enables market participation without compromising soul-bound properties
-- Unwrapping returns to standard sUSD lifecycle
+- Unwrapping returns to standard STUSD lifecycle
 
 This dual-token approach preserves lifecycle integrity while providing liquidity access.
